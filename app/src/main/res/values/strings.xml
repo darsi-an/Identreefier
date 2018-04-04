@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Identreefier</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="button_identifyTree">Identify Tree</string>
+    <string name="logo">Identreefier</string>
+    <string name="send_inpit_to_blackboard">Send values to blackboard</string>
+    <string name="TreeType">Tree Type</string>
+    <string-array name="tree_type">
+        <item>Deciduous</item>
+        <item>Coniferous</item>
+    </string-array>
+    <string name="sendBlackboardData">Identify Tree!</string>
+</resources>
