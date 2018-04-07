@@ -2,8 +2,8 @@ package com.mcmaster.blackBoard.identreefier;
 
 public class Tree {
 
-    String treeName;
-    double likelihood;
+    private String treeName;
+    private double likelihood;
 
     public Tree(String name) {
         this.treeName = name;

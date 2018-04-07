@@ -2,9 +2,9 @@ package com.mcmaster.blackBoard.identreefier;
 
 public class BarkDetails {
 
-    String treeName;
-    String colour;
-    String texture;
+    private String treeName;
+    private String colour;
+    private String texture;
 
     public BarkDetails(String treeName, String colour, String texture) {
         this.treeName = treeName;
