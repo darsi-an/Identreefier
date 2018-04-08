@@ -1,10 +1,12 @@
 package com.mcmaster.blackBoard.identreefier;
 
+import com.mcmaster.blackBoard.identreefier.Models.LeafDetails;
+
 import java.util.Map;
 
 public class LeafExpert implements Expert {
 
-    private BarkDetails[] rules;
+    private LeafDetails[] rules;
 
     @Override
     public String getName() {
@@ -28,6 +30,6 @@ public class LeafExpert implements Expert {
 
     @Override
     public void loadRules() {
-        
+
     }
 }

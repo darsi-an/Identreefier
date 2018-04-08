@@ -1,10 +1,13 @@
 package com.mcmaster.blackBoard.identreefier;
 
+import com.mcmaster.blackBoard.identreefier.Models.BarkDetails;
+
 import java.util.Map;
 
 public class BarkExpert implements Expert {
 
-    private Map<String, Double> rules;
+    private Map<String, Double> results;
+    private BarkDetails[] rules;
 
     @Override
     public String getName() {
