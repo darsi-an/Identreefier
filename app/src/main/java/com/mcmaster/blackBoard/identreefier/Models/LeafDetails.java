@@ -1,4 +1,4 @@
-package com.mcmaster.blackBoard.identreefier;
+package com.mcmaster.blackBoard.identreefier.Models;
 
 public class LeafDetails {
 

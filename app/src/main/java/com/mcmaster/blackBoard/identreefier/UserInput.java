@@ -1,14 +1,19 @@
 package com.mcmaster.blackBoard.identreefier;
 
-public class UserInput {
+import java.io.Serializable;
 
-    String arrangement;
-    String type;
-    String edge;
-    String lobes;
-    String bladeStructure;
-    String base;
-    String shape;
+public class UserInput implements Serializable{
+
+
+    String treeType;
+    String leafletArrangement;
+    String leafType;
+    String leafEdge;
+    String lobesOrNot;
+    String leafBladeStructure;
+    String leafBase;
+    String leafShape;
+    String leafBudArrangement;
     String barkColour;
     String barkTexture;
     //location <- figure out what to do with this
