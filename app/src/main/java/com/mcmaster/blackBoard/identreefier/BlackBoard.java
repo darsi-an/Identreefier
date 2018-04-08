@@ -18,9 +18,7 @@ import java.util.Map;
 public class BlackBoard extends AppCompatActivity {
 
     private List<Expert> experts;
-
-
-
+    private UserInput userInput ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,23 +28,20 @@ public class BlackBoard extends AppCompatActivity {
         this.experts = new ArrayList<>();
 
         Intent intent = getIntent();
-        UserInput userInput = (UserInput) intent.getSerializableExtra("userInput");
+        this.userInput = (UserInput) intent.getSerializableExtra("userInput");
 
-        TextView textView = findViewById(R.id.textView5);
-        textView.setText(userInput.treeType);
-        Log.v("blackboard-treetype",userInput.treeType);
+//        TextView textView = findViewById(R.id.textView5);
+//        textView.setText(userInput.treeType);
+//        Log.v("blackboard-treetype",userInput.treeType);
 
-        //startIdentificationProcess();
+        startIdentificationProcess();
     }
 
     public void startIdentificationProcess(){
         Expert leaf = new LeafExpert();
-
-
         registerExpert(leaf);
 
-
-
+        expertEventTrigger();
     }
 
     public void registerExpert(Expert expert){
@@ -65,6 +60,9 @@ public class BlackBoard extends AppCompatActivity {
 
 
     public void expertEventTrigger(){
+        for(Expert e : experts){
+
+        }
 
     }
 
