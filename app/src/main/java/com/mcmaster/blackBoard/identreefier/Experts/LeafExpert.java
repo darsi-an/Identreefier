@@ -1,60 +1,35 @@
 package com.mcmaster.blackBoard.identreefier.Experts;
 
-import android.util.Log;
-
 import com.mcmaster.blackBoard.identreefier.Models.LeafDetails;
 
-import java.util.HashMap;
+import java.util.Map;
 
-/**
- * Created by Darsi An on 2018-04-06.
- */
+public class LeafExpert implements Expert {
 
-public class LeafExpert extends Expert {
-    private HashMap<String,String> rules;
-    private LeafDetails leafDetails;
+    private LeafDetails[] rules;
 
-    private String[] rule;
-    private String name;
-
-
-    public LeafExpert(){
-        super("Leaf-Expert_Interface");
+    @Override
+    public String getName() {
+        return "LeafExpert";
     }
 
     @Override
-    public boolean checkEventCondition(){
-        return true;
-//        this.leafDetails = new LeafDetails();
-//        if(blackBoard.list.containsKey("leaf")){
-//            this.rules = blackBoard.list.get("leaf");
-//            Log.v("leaf-rules",rules.toString());
-//            return true;
-//        }else{
-//            return false;
-//        }
+    public boolean checkEventCondition() {
+        return false;
     }
 
     @Override
-    public void handleEvent(){
-
+    public void handleEvent() {
+        System.out.println("Leaf expert not implemented yet");
     }
 
     @Override
-    public String getName(){
-        return this.name;
+    public Map<String, Double> updateBB() {
+        return null;
     }
 
     @Override
-    public void updateBB(){
+    public void loadRules() {
 
     }
-
-    @Override
-    public void loadRules(){
-
-    }
-
-
-
 }
