@@ -22,18 +22,19 @@ public class BlackBoard extends AppCompatActivity {
 
 
     private List<Tree> tree_result;
+
     private List<Expert> experts;
     private UserInput userInput ;
+
+
     public Map<String,HashMap<String,String>> list;
-
-
-    public  List<TreeData> listOfTrees;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_black_board);
 
+        this.tree_result = new ArrayList<>() ;
         readData();
 
         this.experts = new ArrayList<>();
@@ -46,9 +47,11 @@ public class BlackBoard extends AppCompatActivity {
         this.list = userInput.getDetails();
         Log.v("list values: ",list.toString() );
 
-        Expert leaf = new LeafExpert();
+        Expert leaf = new LeafExpert(this);
         registerExpert(leaf);
         expertEventTrigger();
+
+
     }
 
 
@@ -92,7 +95,7 @@ public class BlackBoard extends AppCompatActivity {
     }
 
     private void readData() {
-        InputStream is = getResources().openRawResource(R.raw.treedata);
+        InputStream is = getResources().openRawResource(R.raw.treedatacsv);
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(is, Charset.forName("UTF-8")));
         String line = "";
@@ -103,14 +106,11 @@ public class BlackBoard extends AppCompatActivity {
                 String[] tokens = line.split(",");
 
                 // Read the data and store it in the WellData POJO.
-                TreeData wellData = new TreeData();
-                wellData.setTreeName(tokens[0]);
-                wellData.setTreeType(tokens[1]);
-                wellData.setLeafLetArrangement(tokens[2]);
+                Tree treeData = new Tree(tokens[0]);
 
-                listOfTrees.add(wellData);
+                tree_result.add(treeData);
 
-                Log.d("MainActivity" ,"Just Created " + wellData);
+                Log.d("MainActivity" ,"Just Created " + treeData);
             }
         } catch (IOException e1) {
             Log.e("MainActivity", "Error" + line, e1);

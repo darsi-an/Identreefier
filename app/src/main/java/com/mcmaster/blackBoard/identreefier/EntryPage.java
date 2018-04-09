@@ -33,7 +33,7 @@ public class EntryPage extends Activity implements OnItemSelectedListener,Google
     private TextView addressField; //Add a new TextView to your activity_main to display the address
     private String provider;
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "EntryPage";
     private TextView mLatitudeTextView;
     private TextView mLongitudeTextView;
     private GoogleApiClient mGoogleApiClient;

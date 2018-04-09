@@ -11,10 +11,10 @@ public class LocationDetails {
     private String province;
     private String country;
 
-    public LocationDetails(String name, String city, String province) {
+    public LocationDetails(String name, String city) {
         this.treeName = name;
         this.city = city;
-        this.province = province;
+        this.province = "Ontario";
         this.country = "Canada";
     }
 }
