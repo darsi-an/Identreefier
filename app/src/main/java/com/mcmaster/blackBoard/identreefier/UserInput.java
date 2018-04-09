@@ -18,8 +18,10 @@ public class UserInput implements Serializable{
     String leafBudArrangement;
     String barkColour;
     String barkTexture;
-    //location <- figure out what to do with this
-
+    Double lattitude;
+    Double longitude;
+    String city;
+    
     HashMap<String,HashMap<String,String>> list;
 
     public HashMap<String,HashMap<String,String>> getDetails(){

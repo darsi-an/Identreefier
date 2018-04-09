@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 
 import com.mcmaster.blackBoard.identreefier.Experts.Expert;
 import com.mcmaster.blackBoard.identreefier.Experts.LeafExpert;
@@ -15,7 +14,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,7 +56,8 @@ public class BlackBoard extends AppCompatActivity {
 
     public void registerExpert(Expert expert){
         if (expert == null){
-            throw new NullPointerException("Null Expert_Interface");
+            Log.v("null-pointer: ","registered expert is null");
+            throw new NullPointerException("Null Expert");
         }
 
         if(!experts.contains(expert)){
