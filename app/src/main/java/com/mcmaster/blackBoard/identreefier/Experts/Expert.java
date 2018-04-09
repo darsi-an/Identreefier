@@ -1,5 +1,8 @@
 package com.mcmaster.blackBoard.identreefier.Experts;
 
+import com.mcmaster.blackBoard.identreefier.BlackBoard;
+import com.mcmaster.blackBoard.identreefier.Models.LeafDetails;
+
 import java.util.List;
 import java.util.Map;
 
@@ -8,20 +11,27 @@ import java.util.Map;
  */
 
 public abstract class Expert {
-    private List<Map<String ,Object >> keys;
+    public BlackBoard blackBoard;
     private String name;
+    private boolean canContribute;
 
-    public void setName(String name){
+    public Expert(String name){
         this.name = name;
+
+    }
+
+    public Expert(String name, BlackBoard blkb){
+        this.blackBoard = blkb;
+        this.name = name;
+
     }
 
     public String getName(){
-        return(name);
-
+        return this.name;
     }
 
     public boolean checkEventCondition(){
-        return true;
+        return canContribute;
     }
 
     public void handleEvent(){
@@ -35,6 +45,7 @@ public abstract class Expert {
     public void updateBB(){
 
     }
+
 
 
 

@@ -1,8 +1,8 @@
-package com.mcmaster.blackBoard.identreefier;
+package com.mcmaster.blackBoard.identreefier.Experts;
 
 import java.util.Map;
 
-public interface Expert {
+public interface Expert_Interface {
 
     public abstract String getName();
 

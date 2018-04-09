@@ -70,6 +70,7 @@ public class EntryPage extends Activity implements OnItemSelectedListener {
                 userInput.leafType = parent.getSelectedItem().toString().trim();
                 Log.v("input-leaf-type: ",userInput.leafType);
                 break;
+
         }
     }
 

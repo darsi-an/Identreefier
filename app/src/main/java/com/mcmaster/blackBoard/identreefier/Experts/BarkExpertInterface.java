@@ -1,16 +1,17 @@
-package com.mcmaster.blackBoard.identreefier;
+package com.mcmaster.blackBoard.identreefier.Experts;
 
-import com.mcmaster.blackBoard.identreefier.Models.LeafDetails;
+import com.mcmaster.blackBoard.identreefier.Models.BarkDetails;
 
 import java.util.Map;
 
-public class LeafExpert implements Expert {
+public class BarkExpertInterface implements Expert_Interface {
 
-    private LeafDetails[] rules;
+    private Map<String, Double> results;
+    private BarkDetails[] rules;
 
     @Override
     public String getName() {
-        return "LeafExpert";
+        return "BarkExpertInterface";
     }
 
     @Override
@@ -20,7 +21,7 @@ public class LeafExpert implements Expert {
 
     @Override
     public void handleEvent() {
-        System.out.println("Leaf expert not implemented yet");
+        System.out.println("Bark expert not implemented yet");
     }
 
     @Override
