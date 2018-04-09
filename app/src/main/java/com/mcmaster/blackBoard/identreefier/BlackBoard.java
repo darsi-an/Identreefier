@@ -58,7 +58,7 @@ public class BlackBoard extends AppCompatActivity {
 
     public void registerExpert(Expert expert){
         if (expert == null){
-            throw new NullPointerException("Null Expert");
+            throw new NullPointerException("Null Expert_Interface");
         }
 
         if(!experts.contains(expert)){
