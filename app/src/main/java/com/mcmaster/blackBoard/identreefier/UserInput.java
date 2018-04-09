@@ -1,6 +1,8 @@
 package com.mcmaster.blackBoard.identreefier;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserInput implements Serializable{
 
@@ -17,4 +19,22 @@ public class UserInput implements Serializable{
     String barkColour;
     String barkTexture;
     //location <- figure out what to do with this
+
+    HashMap<String,HashMap<String,String>> list;
+
+    public HashMap<String,HashMap<String,String>> getDetails(){
+
+        this.list = new HashMap<>();
+
+        HashMap leafMap = new HashMap();
+        leafMap.put("tree_type",treeType);
+        leafMap.put("leaflet_arrangement",leafletArrangement);
+        leafMap.put("leaf_type",leafType);
+        leafMap.put("leafEdge",leafEdge);
+
+        list.put("leaf",leafMap);
+
+        return list;
+
+    }
 }

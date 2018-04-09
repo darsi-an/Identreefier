@@ -22,6 +22,10 @@ public class LeafDetails {
         this.leafShape = shape;
     }
 
+    public LeafDetails(){
+
+    }
+
     public String getTreeName() {
         return this.treeName;
     }
