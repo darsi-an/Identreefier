@@ -24,35 +24,34 @@ public class UserInput implements Serializable{
     Double longitude;
     String city;
 
-    HashMap<String,String> list;
 
     public HashMap<String,String> getDetails(){
 
-        HashMap<String, String> leafMap = new HashMap<>();
+        HashMap<String, String> inputs = new HashMap<>();
 
-        leafMap.put("tree_type",treeType);
-        leafMap.put("leaflet_arrangement",leafletArrangement);
-        leafMap.put("leaf_type",leafType);
-        leafMap.put("leafEdge",leafEdge);
-        leafMap.put("isLobbed",lobesOrNot);
-        leafMap.put("leafBladeStructure",leafBladeStructure);
-        leafMap.put("leafBase",leafBase);
-        leafMap.put("leafShape",leafShape);
-        //leafMap.put("leafBudArrangement",leafBudArrangement);
-        leafMap.put("needlesOrScales",needlesOrScales);
-        leafMap.put("needlesBundled",needlesBundled);
+        inputs.put("tree_type",treeType);
+        inputs.put("leaflet_arrangement",leafletArrangement);
+        inputs.put("leaf_type",leafType);
+        inputs.put("leafEdge",leafEdge);
+        inputs.put("isLobbed",lobesOrNot);
+        inputs.put("leafBladeStructure",leafBladeStructure);
+        inputs.put("leafBase",leafBase);
+        inputs.put("leafShape",leafShape);
+        inputs.put("needlesOrScales",needlesOrScales);
+        inputs.put("needlesBundled",needlesBundled);
 
-        HashMap barkMap = new HashMap();
-        leafMap.put("barkColor",barkColour);
-        leafMap.put("barkColor2",barkColor2);
-        leafMap.put("barkTexture", barkTexture);
+        inputs.put("barkColor",barkColour);
+        inputs.put("barkColor2",barkColor2);
+        inputs.put("barkTexture", barkTexture);
 
+        if (lattitude != null) {
+            inputs.put("lattitude", lattitude.toString());
+        }
+        if (longitude != null) {
+            inputs.put("longitude", longitude.toString());
+        }
 
-        HashMap loc = new HashMap();
-//        leafMap.put("lattitude",lattitude.toString());
-//        leafMap.put("longitude", longitude.toString());
-
-        return leafMap;
+        return inputs;
 
     }
 }

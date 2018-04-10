@@ -38,10 +38,7 @@ public class LeafExpert implements Expert {
     }
 
     @Override
-    public boolean checkEventCondition() {
-
-        return true;
-    }
+    public boolean checkEventCondition() {return true;}
 
     @Override
     public void handleEvent() {
@@ -136,10 +133,11 @@ public class LeafExpert implements Expert {
                 }
                 denom += 1.0;
             }
-//            Log.i("num: ", num+"");
-//            Log.i("denom: ", denom+"");
+            Log.i("num: ", num+"");
+            Log.i("denom: ", denom+"");
             retList.put(leaf.getTreeName(), num/denom);
         }
+        Log.v("tree resultsLeaf: " , retList.toString());
         //return retList; <- figure out how to do this
     }
 

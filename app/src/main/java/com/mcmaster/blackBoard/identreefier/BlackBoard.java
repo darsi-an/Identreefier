@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.mcmaster.blackBoard.identreefier.Experts.BarkExpert;
 import com.mcmaster.blackBoard.identreefier.Experts.Expert;
 import com.mcmaster.blackBoard.identreefier.Experts.LeafExpert;
+import com.mcmaster.blackBoard.identreefier.Experts.LocationExpert;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,7 +28,6 @@ public class BlackBoard extends AppCompatActivity {
 
     private List<Expert> experts;
     public UserInput userInput ;
-    public TextView inputVal;
 
 
     public Map<String,String> list;
@@ -48,19 +48,20 @@ public class BlackBoard extends AppCompatActivity {
         Intent intent = getIntent();
         this.userInput = (UserInput) intent.getSerializableExtra("userInput");
         TextView textView = findViewById(R.id.textView5);
-
-
-        //update(userInput);
-        //this.list = new HashMap<>();
+        
         this.list = userInput.getDetails();
         Log.v("list values: ",list.toString() );
         textView.setText(list.toString());
 
-
         Expert leaf = new LeafExpert(this);
         registerExpert(leaf);
+
         Expert bark = new BarkExpert(this);
         registerExpert(bark);
+
+        Expert loc = new LocationExpert(this);
+        registerExpert(loc);
+
         expertEventTrigger();
 
 

@@ -25,7 +25,7 @@ public class BarkExpert implements Expert {
     public List<BarkDetails> listOfTrees;
 
     public BlackBoard blackBoard;
-    private Context blkbrd;
+    //private Context blkbrd;
 
     public BarkExpert(BlackBoard blk){
         this.blackBoard = blk;
@@ -114,10 +114,10 @@ public class BarkExpert implements Expert {
                 BarkDetails barkDetails = new BarkDetails(tokens[0],tokens[11],tokens[12]);
                 listOfTrees.add(barkDetails);
 
-                Log.d("MainActivity" ,"Just Created " + barkDetails);
+                Log.d("BarkExpert" ,"Just Created " + barkDetails);
             }
         } catch (IOException e1) {
-            Log.e("MainActivity", "Error" + line, e1);
+            Log.e("BarkExpert", "Error" + line, e1);
             e1.printStackTrace();
         }
     }
