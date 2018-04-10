@@ -38,6 +38,9 @@ public class BlackBoard extends AppCompatActivity {
 
         this.tree_result = new ArrayList<>() ;
         readData();
+        for(int i = 1 ; i < 22; i++){
+            Log.v("tree_result: ", tree_result.get(i).getTreeName());
+        }
 
         this.experts = new ArrayList<>();
 
@@ -116,10 +119,10 @@ public class BlackBoard extends AppCompatActivity {
 
                 tree_result.add(treeData);
 
-                Log.d("MainActivity" ,"Just Created " + treeData);
+                Log.d("EntryPage" ,"Just Created " + treeData);
             }
         } catch (IOException e1) {
-            Log.e("MainActivity", "Error" + line, e1);
+            Log.e("EntryPage", "Error" + line, e1);
             e1.printStackTrace();
         }
     }

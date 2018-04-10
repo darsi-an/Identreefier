@@ -20,8 +20,8 @@
     <string name="leaf_bud_arrangement">How are the leaf buds arranged?</string>
     <string name="blade_structure">What is the blade structure?</string>
     <string name="leaf_shape">What shape are the leaves?</string>
-    <string name="needles_orScales">Does the tree have needles or scales?</string>
-    <string name="needles_bundled">How are the needles bundled?</string>
+    <string name="needles_orScales">FOR CONIFERS: Does the tree have needles or scales?</string>
+    <string name="needles_bundled">FOR CONIFERS: How are the needles bundled?</string>
     <string name="barkColor">What is the color of the bark?</string>
     <string name="barkColor2">If you cannot distinguish a color, please name another color of the bark?</string>
     <string name="barkTexture">What is the texture of the bark?</string>
@@ -53,8 +53,8 @@
     </string-array>
     <string-array name="l_arrangement">
         <item></item>
-        <item>Pinnately Compound</item>
-        <item>Palmately Compound</item>
+        <item>Pinnately</item>
+        <item>Palmately</item>
     </string-array>
     <string-array name="l_grouping">
         <item></item>
@@ -92,18 +92,28 @@
     </string-array>
     <string-array name="l_needlesOrScales">
         <item></item>
-        <item>Opposite</item>
-        <item>Alternate</item>
+        <item>Needles</item>
+        <item>Scales</item>
     </string-array>
     <string-array name="l_needlesBundled">
         <item></item>
-        <item>Opposite</item>
-        <item>Alternate</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>5 or more</item>
     </string-array>
     <string-array name="bark_color">
         <item></item>
-        <item>Pinnately Compound</item>
-        <item>Palmately Compound</item>
+        <item>Red</item>
+        <item>Brown</item>
+        <item>Black</item>
+        <item>Green</item>
+        <item>Silver</item>
+        <item>Blue</item>
+        <item>White</item>
+        <item>Yellow</item>
+        <item>Purple</item>
+        <item>Orange</item>
     </string-array>
     <string-array name="bark_texture">
         <item></item>
