@@ -25,11 +25,11 @@ public class BlackBoard extends AppCompatActivity {
     private List<Tree> tree_result;
 
     private List<Expert> experts;
-    private UserInput userInput ;
+    public UserInput userInput ;
     public TextView inputVal;
 
 
-    public Map<String,HashMap<String,String>> list;
+    public Map<String,String> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

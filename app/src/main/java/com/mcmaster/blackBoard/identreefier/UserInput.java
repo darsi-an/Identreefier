@@ -24,13 +24,12 @@ public class UserInput implements Serializable{
     Double longitude;
     String city;
 
-    HashMap<String,HashMap<String,String>> list;
+    HashMap<String,String> list;
 
-    public HashMap<String,HashMap<String,String>> getDetails(){
+    public HashMap<String,String> getDetails(){
 
-        this.list = new HashMap<>();
+        HashMap<String, String> leafMap = new HashMap<>();
 
-        HashMap leafMap = new HashMap();
         leafMap.put("tree_type",treeType);
         leafMap.put("leaflet_arrangement",leafletArrangement);
         leafMap.put("leaf_type",leafType);
@@ -42,21 +41,18 @@ public class UserInput implements Serializable{
         //leafMap.put("leafBudArrangement",leafBudArrangement);
         leafMap.put("needlesOrScales",needlesOrScales);
         leafMap.put("needlesBundled",needlesBundled);
-        list.put("leaf",leafMap);
 
         HashMap barkMap = new HashMap();
-        barkMap.put("barkColor",barkColour);
-        barkMap.put("barkColor2",barkColor2);
-        barkMap.put("barkTexture", barkTexture);
-        list.put("bark",barkMap);
+        leafMap.put("barkColor",barkColour);
+        leafMap.put("barkColor2",barkColor2);
+        leafMap.put("barkTexture", barkTexture);
 
 
         HashMap loc = new HashMap();
-        loc.put("lattitude",lattitude);
-        loc.put("longitude", longitude);
-        list.put("location",loc);
+//        leafMap.put("lattitude",lattitude.toString());
+//        leafMap.put("longitude", longitude.toString());
 
-        return list;
+        return leafMap;
 
     }
 }

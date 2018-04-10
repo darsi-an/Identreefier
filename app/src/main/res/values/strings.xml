@@ -78,8 +78,8 @@
     </string-array>
     <string-array name="l_base">
         <item></item>
-        <item>Symetrical</item>
-        <item>Asymetrical</item>
+        <item>Symmetrical</item>
+        <item>Asymmetrical</item>
     </string-array>
     <string-array name="l_shape">
         <item></item>

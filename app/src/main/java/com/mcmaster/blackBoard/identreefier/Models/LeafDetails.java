@@ -14,7 +14,7 @@ public class LeafDetails {
     private String needlesOrScales;
     private String needlesBundled;
 
-    public LeafDetails(String name, String type,  String arrangement, String grouping ,String edge, String lobes, String bladeStructure, String base, String shape, String needlesOrScales, String needlesBundled) {
+    public LeafDetails(String name, String type,  String arrangement, String grouping ,String edge, String lobes, String base, String bladeStructure, String shape, String needlesOrScales, String needlesBundled) {
         this.treeName = name;
         this.leafType = type;
         this.leafArrangement = arrangement;
