@@ -97,7 +97,7 @@ public class LocationExpert implements Expert {
 
         }
         this.results = retList;
-        HashMap<String, Double> dummy = updateBB();
+        Map<String, Double> dummy = updateBB();
         Log.v("tree resultsLocation: " , retList.toString());
         
     }
@@ -195,8 +195,8 @@ public class LocationExpert implements Expert {
 // northwest=[Dryden, Thunder Bay, Kenora, Fort Frances, Sioux Lookout, Greenstone, Red Lake, Maraton, Atikokan]}
 
     @Override
-    public HashMap<String, Double> updateBB() {
-        blackBoard.update(this.results);
+    public Map<String, Double> updateBB() {
+        blackBoard.update(this.results, 0.5);
         return null;
     }
 

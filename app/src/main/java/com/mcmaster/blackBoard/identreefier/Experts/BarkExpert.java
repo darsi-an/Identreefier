@@ -19,8 +19,9 @@ import java.util.Map;
 
 public class BarkExpert implements Expert {
 
-    private Map<String, Double> results;
+    private HashMap<String, Double> results;
     private BarkDetails[] rules;
+    private double d;
 
     public List<BarkDetails> listOfTrees;
 
@@ -95,6 +96,7 @@ public class BarkExpert implements Expert {
 
     @Override
     public Map<String, Double> updateBB() {
+        blackBoard.update(this.results, 1);
         return null;
     }
 

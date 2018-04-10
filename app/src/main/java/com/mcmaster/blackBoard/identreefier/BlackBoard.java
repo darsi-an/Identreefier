@@ -117,10 +117,10 @@ public class BlackBoard extends AppCompatActivity {
         }
     }
 
-    public void update(HashMap<String, Double> results) {
+    public void update(HashMap<String, Double> results, double mult) {
         for (Tree tree : tree_result) {
             if (results.containsKey(tree.getTreeName())) {
-                tree.multiplyLikelihood(results.get(tree.getTreeName()));
+                tree.multiplyLikelihood(results.get(tree.getTreeName())*mult);
             }
         }
     }
