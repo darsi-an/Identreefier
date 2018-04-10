@@ -196,7 +196,7 @@ public class LocationExpert implements Expert {
 
     @Override
     public Map<String, Double> updateBB() {
-        blackBoard.update(this.results);
+        blackBoard.update(this.results, 0.5);
         return null;
     }
 

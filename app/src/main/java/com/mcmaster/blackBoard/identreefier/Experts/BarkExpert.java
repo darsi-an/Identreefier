@@ -21,6 +21,7 @@ public class BarkExpert implements Expert {
 
     private HashMap<String, Double> results;
     private BarkDetails[] rules;
+    private double d;
 
     public List<BarkDetails> listOfTrees;
 
@@ -95,7 +96,7 @@ public class BarkExpert implements Expert {
 
     @Override
     public Map<String, Double> updateBB() {
-        blackBoard.update(this.results);
+        blackBoard.update(this.results, 1);
         return null;
     }
 

@@ -145,7 +145,7 @@ public class LeafExpert implements Expert {
 
     @Override
     public HashMap<String, Double> updateBB() {
-        blackBoard.update(this.results);
+        blackBoard.update(this.results, 2);
         return null;
     }
 
