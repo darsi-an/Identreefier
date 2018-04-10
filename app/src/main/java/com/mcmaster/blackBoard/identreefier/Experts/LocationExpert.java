@@ -1,18 +1,24 @@
 package com.mcmaster.blackBoard.identreefier.Experts;
 
 import android.content.Context;
+import android.location.Address;
+import android.location.Geocoder;
 import android.util.Log;
 
 import com.mcmaster.blackBoard.identreefier.BlackBoard;
 import com.mcmaster.blackBoard.identreefier.Models.LocationDetails;
 import com.mcmaster.blackBoard.identreefier.R;
+import com.mcmaster.blackBoard.identreefier.UserInput;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -26,7 +32,12 @@ public class LocationExpert implements Expert {
     public List<LocationDetails> listOfTrees;
 
     public BlackBoard blackBoard;
-    private Context blkbrd;
+    //private Context blkbrd;
+
+    public LocationExpert(BlackBoard blkbrd){
+        this.blackBoard = blkbrd;
+        this.listOfTrees = new ArrayList<>();
+    }
 
     @Override
     public String getName() {
@@ -35,13 +46,27 @@ public class LocationExpert implements Expert {
 
     @Override
     public boolean checkEventCondition() {
-        return false;
+        return true;
     }
 
     @Override
     public void handleEvent() {
 
-        System.out.println("Location not implemented yet");
+        HashMap<String, String> inputs = blackBoard.userInput.getDetails();
+
+        Double lat = Double.parseDouble(inputs.get("lattitude"));
+        Log.v("lat: ", Double.toString(lat));
+        Double lng = Double.parseDouble(inputs.get("longitude"));
+        Log.v("lng: ", Double.toString(lng));
+        Geocoder geocoder = new Geocoder(blackBoard, Locale.getDefault());
+        List<Address> addresses = null;
+        try {
+            addresses = geocoder.getFromLocation(lat, lng, 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Log.v("Address from geocoder: ", addresses.toString());
     }
 
     @Override
@@ -66,10 +91,10 @@ public class LocationExpert implements Expert {
                 LocationDetails locationTreeData = new LocationDetails(tokens[0],tokens[11] );
                 listOfTrees.add(locationTreeData);
 
-                Log.d("MainActivity" ,"Just Created " + locationTreeData);
+                Log.d("LocationExpert" ,"Just Created " + locationTreeData);
             }
         } catch (IOException e1) {
-            Log.e("MainActivity", "Error" + line, e1);
+            Log.e("LocationExpert", "Error" + line, e1);
             e1.printStackTrace();
         }
     }

@@ -124,4 +124,7 @@
     <string name="sendBlackboardData">Identify Tree!</string>
     <string name="title_activity_entry_page_scroll">EntryPageScroll</string>
     <string name="device_location">Your Location</string>
+    <string name="title_location_permission">Requesting Permissions</string>
+    <string name="text_location_permission">accept to use location</string>
+    <string name="ok">Okay</string>
 </resources>

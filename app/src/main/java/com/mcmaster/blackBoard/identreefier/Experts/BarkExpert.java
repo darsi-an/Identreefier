@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +24,12 @@ public class BarkExpert implements Expert {
     public List<BarkDetails> listOfTrees;
 
     public BlackBoard blackBoard;
-    private Context blkbrd;
+    //private Context blkbrd;
+
+    public BarkExpert(BlackBoard blkbrd){
+        this.blackBoard = blkbrd;
+        this.listOfTrees = new ArrayList<>();
+    }
 
     @Override
     public String getName() {
@@ -32,7 +38,7 @@ public class BarkExpert implements Expert {
 
     @Override
     public boolean checkEventCondition() {
-        return false;
+        return true;
     }
 
     @Override
@@ -62,10 +68,10 @@ public class BarkExpert implements Expert {
                 BarkDetails barkDetails = new BarkDetails(tokens[0],tokens[9],tokens[10]);
                 listOfTrees.add(barkDetails);
 
-                Log.d("MainActivity" ,"Just Created " + barkDetails);
+                Log.d("BarkExpert" ,"Just Created " + barkDetails);
             }
         } catch (IOException e1) {
-            Log.e("MainActivity", "Error" + line, e1);
+            Log.e("BarkExpert", "Error" + line, e1);
             e1.printStackTrace();
         }
     }
