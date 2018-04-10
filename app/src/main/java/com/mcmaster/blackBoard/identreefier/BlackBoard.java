@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.mcmaster.blackBoard.identreefier.Experts.BarkExpert;
 import com.mcmaster.blackBoard.identreefier.Experts.Expert;
@@ -26,16 +25,13 @@ import java.util.Map;
 
 public class BlackBoard extends AppCompatActivity {
 
-
     private List<Tree> tree_result;
 
     private List<Expert> experts;
     public UserInput userInput ;
 
-
     public Map<String,String> list;
 
-    public TextView displayResults;
     private ListView m_listview;
 
     @Override
@@ -45,9 +41,6 @@ public class BlackBoard extends AppCompatActivity {
 
         this.tree_result = new ArrayList<>() ;
         readData();
-//        for(int i = 1 ; i < 22; i++){
-//            Log.v("tree_result: ", tree_result.get(i).getTreeName());
-//        }
 
         this.experts = new ArrayList<>();
 

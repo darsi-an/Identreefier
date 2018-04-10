@@ -1,6 +1,5 @@
 package com.mcmaster.blackBoard.identreefier.Experts;
 
-import android.content.Context;
 import android.util.Log;
 
 import com.mcmaster.blackBoard.identreefier.BlackBoard;
@@ -15,8 +14,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import com.mcmaster.blackBoard.identreefier.Tree;
+
 
 public class LeafExpert implements Expert {
 
