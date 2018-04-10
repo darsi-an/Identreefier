@@ -149,7 +149,7 @@ public class EntryPage extends Activity implements OnItemSelectedListener,Google
                 .build();
 
         mLocationManager = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
-        //checkLocation();
+        checkLocation();
         relocate();
 
     }

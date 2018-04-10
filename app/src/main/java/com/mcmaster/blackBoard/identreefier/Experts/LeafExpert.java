@@ -21,7 +21,7 @@ import com.mcmaster.blackBoard.identreefier.Tree;
 public class LeafExpert implements Expert {
 
     private static final String TAG = "BlackBoard";
-    private LeafDetails[] rules;
+    private HashMap<String, Double> results;
     private List<LeafDetails> listOfTrees;
 
     public BlackBoard blackBoard;
@@ -133,16 +133,19 @@ public class LeafExpert implements Expert {
                 }
                 denom += 1.0;
             }
-            Log.i("num: ", num+"");
-            Log.i("denom: ", denom+"");
+            //Log.i("num: ", num+"");
+            //Log.i("denom: ", denom+"");
             retList.put(leaf.getTreeName(), num/denom);
         }
-        Log.v("tree resultsLeaf: " , retList.toString());
+        //Log.v("tree resultsLeaf: " , retList.toString());
         //return retList; <- figure out how to do this
+        this.results = retList;
+        HashMap<String, Double> dummy = updateBB();
     }
 
     @Override
-    public Map<String, Double> updateBB() {
+    public HashMap<String, Double> updateBB() {
+        blackBoard.update(this.results);
         return null;
     }
 

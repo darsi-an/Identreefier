@@ -1,6 +1,8 @@
 package com.mcmaster.blackBoard.identreefier;
 
-public class Tree {
+import android.support.annotation.NonNull;
+
+public class Tree implements Comparable<Tree> {
 
     private String treeName;
     private double likelihood;
@@ -28,5 +30,12 @@ public class Tree {
 
     public void resetLikelihood() {
         this.likelihood = 1.0;
+    }
+
+    @Override
+    public int compareTo(@NonNull Tree o) {
+        if (this.getLikelihood() > o.getLikelihood())
+            return -1;
+        else return 1;
     }
 }

@@ -1,6 +1,8 @@
 package com.mcmaster.blackBoard.identreefier;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +19,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,7 +68,12 @@ public class BlackBoard extends AppCompatActivity {
 
         expertEventTrigger();
 
-
+        Collections.sort(tree_result);
+        int i = 0;
+        for (Tree tree : tree_result) {
+            i++;
+            Log.v(i+"", tree.getTreeName()+" "+tree.getLikelihood());
+        }
     }
 
 
@@ -94,8 +103,12 @@ public class BlackBoard extends AppCompatActivity {
         }
     }
 
-    public void update(UserInput userInput){
-        this.userInput = userInput;
+    public void update(HashMap<String, Double> results) {
+        for (Tree tree : tree_result) {
+            if (results.containsKey(tree.getTreeName())) {
+                tree.multiplyLikelihood(results.get(tree.getTreeName()));
+            }
+        }
     }
 
 
@@ -114,16 +127,20 @@ public class BlackBoard extends AppCompatActivity {
         String line = "";
 
         try {
+            boolean firstline = true;
             while ((line = reader.readLine()) != null) {
                 // Split the line into different tokens (using the comma as a separator).
-                String[] tokens = line.split(",");
+                if (!firstline) {
+                    String[] tokens = line.split(",");
 
-                // Read the data and store it in the WellData POJO.
-                Tree treeData = new Tree(tokens[0]);
+                    // Read the data and store it in the WellData POJO.
+                    Tree treeData = new Tree(tokens[0]);
 
-                tree_result.add(treeData);
+                    tree_result.add(treeData);
 
-                Log.d("EntryPage" ,"Just Created " + treeData);
+                    Log.d("EntryPage", "Just Created " + treeData);
+                }
+                firstline = false;
             }
         } catch (IOException e1) {
             Log.e("EntryPage", "Error" + line, e1);

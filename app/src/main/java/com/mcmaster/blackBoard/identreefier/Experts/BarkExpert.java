@@ -44,13 +44,13 @@ public class BarkExpert implements Expert {
 
     @Override
     public void handleEvent() {
-        Log.v("hey: ", "there");
+        //Log.v("hey: ", "there");
         loadRules();
 
         int length = listOfTrees.size();
         HashMap<String, Double> retList = new HashMap<>();
 
-        for (int i=1; i<2; i++) {
+        for (int i=1; i<length; i++) {
             double num = 1.0;
             double denom = 1.0;
             BarkDetails bark = listOfTrees.get(i);
@@ -60,9 +60,9 @@ public class BarkExpert implements Expert {
 
             if (ui.get("barkColor") != null && bark.getColour() != null && !ui.get("barkColor").equals("") && !bark.getColour().equals("")) {
                 String[] colours = bark.getColour().split(" ");
-//                Log.v("num of colours", colours.length+"");
+                Log.v("num of colours", colours.length+"");
                 for (String colour : colours) {
-//                    Log.v("colour", colour+ui.get("barkColor"));
+                    Log.v("colour", colour+ui.get("barkColor"));
                     if (colour.equalsIgnoreCase(ui.get("barkColor"))) {
                         num += 1;
                     }
@@ -72,7 +72,7 @@ public class BarkExpert implements Expert {
             if ((ui.get("barkColor2") != null) && (bark.getColour() != null) && !ui.get("barkColor2").equals("") && !bark.getColour().equals("") && !ui.get("barkColor2").equals(ui.get("barkColor"))) {
                 String[] colours = bark.getColour().split(" ");
                 for (String colour : colours) {
-//                    Log.v("colour", colour);
+                    Log.v("colour", colour);
                     if (colour.equalsIgnoreCase(ui.get("barkColor2"))) {
                         num += 1;
                     }
@@ -82,13 +82,14 @@ public class BarkExpert implements Expert {
             if (ui.get("barkTexture") != null && bark.getTexture() != null && !ui.get("barkTexture").equals("") && !bark.getTexture().equals("")) {
                 if (bark.getTexture().equalsIgnoreCase(ui.get("barkTexture"))) {
                     num += 1.0;
-//                    Log.v("arrangement ", "true");
+                    Log.v("arrangement ", "true");
                 }
                 denom += 1.0;
             }
-//            Log.v("bark num ", num+"");
-//            Log.v("bark denom ", denom+"");
+            Log.v("bark num ", num+"");
+            Log.v("bark denom ", denom+"");
             retList.put(bark.getTreeName(), num/denom);
+            Log.v("S", "Added to list");
         }
     }
 
