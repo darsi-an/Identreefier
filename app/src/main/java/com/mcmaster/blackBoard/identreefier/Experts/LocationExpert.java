@@ -32,6 +32,8 @@ public class LocationExpert implements Expert {
 
     public List<LocationDetails> listOfTrees;
 
+    private HashMap<String, Double> results;
+
     public BlackBoard blackBoard;
     //private Context blkbrd;
 
@@ -98,6 +100,10 @@ public class LocationExpert implements Expert {
 
         }
         Log.v("tree resultsLocation: " , retList.toString());
+
+        this.results = retList;
+
+        Map<String, Double> dummy = updateBB();
         
     }
 
@@ -193,6 +199,7 @@ public class LocationExpert implements Expert {
 
     @Override
     public Map<String, Double> updateBB() {
+        blackBoard.update(this.results);
         return null;
     }
 

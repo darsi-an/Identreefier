@@ -36,6 +36,8 @@ public class Tree implements Comparable<Tree> {
     public int compareTo(@NonNull Tree o) {
         if (this.getLikelihood() > o.getLikelihood())
             return -1;
-        else return 1;
+        else if (this.getLikelihood() < o.getLikelihood())
+            return 1;
+        else return 0;
     }
 }
