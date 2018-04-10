@@ -70,37 +70,34 @@ public class LocationExpert implements Expert {
         Log.v("Address from geocoder: ", addresses.toString());
         String city = addresses.get(0).getLocality();
         String postalCode = addresses.get(0).getPostalCode();
-        findRegion(city);
+        String region = findRegion(city);
 
         loadRules();
         int length = listOfTrees.size();
         HashMap<String, Double> retList = new HashMap<>();
-//        for (int i = 1; i < length; i++) {
-//            double num = 1.0;
-//            double denom = 1.0;
-//            LocationDetails location = listOfTrees.get(i);
-//            HashMap<String, String> ui = blackBoard.userInput.getDetails();
-////            Log.i("ui: ", ""+ui.get("leafBase"));
-////            Log.i("leaf: ", leaf.getBase());
-//            if (ui.get("tree_type") != null && location.getCity() != null && !ui.get("tree_type").equals("") && !location.getCity().equals("")) {
-//                if (location.getType().equalsIgnoreCase(ui.get("tree_type"))) {
-//                    num += 1.0;
-////                    Log.i("treetype: ", "true");
-//                }
-//                denom += 1.0;
-//            }
-//            if (ui.get("leaflet_arrangement") != null && location.getArrangement() != null && !ui.get("leaflet_arrangement").equals("") && !location.getArrangement().equals("")) {
-//                if (location.getArrangement().equalsIgnoreCase(ui.get("leaflet_arrangement"))) {
-//                    num += 1.0;
-////                    Log.i("arrangement: ", "true");
-//                }
-//                denom += 1.0;
-//            }
-//            Log.i("num: ", num+"");
-//            Log.i("denom: ", denom+"");
-//            retList.put(location.getTreeName(), num/denom);
-//        }
-//        Log.v("tree resultsLeaf: " , retList.toString());
+        for (int i = 1; i < length; i++) {
+            double num = 1.0;
+            double denom = 1.0;
+            LocationDetails location = listOfTrees.get(i);
+            //HashMap<String, String> ui = blackBoard.userInput.getDetails();
+            //Log.i("ui: ", ""+ui);
+            Log.i("location: ", location.getCity());
+            String locationNotes = location.getCity();
+            String[] tree_region = locationNotes.split("\\s+");
+            for(String reg : tree_region){
+                if(reg.matches(region) || reg.matches("all")){
+                    num += 1.0;
+                    Log.i("region matched: ", "true");
+                }
+                denom += 1.0;
+
+            }
+            Log.i("num: ", num+"");
+            Log.i("denom: ", denom+"");
+            retList.put(location.getTreeName(), num/denom);
+
+        }
+        Log.v("tree resultsLocation: " , retList.toString());
         
     }
 
@@ -172,15 +169,16 @@ public class LocationExpert implements Expert {
         map.put("northwest",northWest);
 
         String region = "";
-        for (int i = 0 ; i < map.size();i++){
-            ArrayList tmp = map.get(i);
-            for(int z = 0 ; z < tmp.size();z++){
-                if(tmp.get(z).equals(city)){
-                    region = map.get(i).toString();
-                    Log.v("findRegion",map.get(i).toString());
+        Log.v("RegionMap", map.toString());
+        for(Map.Entry<String, ArrayList<String>> entry : map.entrySet()){
+            for(String cityByRegion : entry.getValue()){
+                if(cityByRegion.matches(city)){
+                    region = entry.getKey();
+                    Log.v("region: ", region);
                 }
             }
         }
+
 
         return region;
 
@@ -188,6 +186,10 @@ public class LocationExpert implements Expert {
 //    Address[addressLines=[0:"University Avenue",1:"Hamilton, ON L8S",2:"Canada"],feature=University Avenue,
 // admin=Ontario,sub-admin=null,locality=Hamilton,thoroughfare=University Avenue,postalCode=L8S,countryCode=CA,countryName=Canada,
 // hasLatitude=true,latitude=43.2611359,hasLongitude=true,longitude=-79.918741,phone=null,url=null,extras=null]]
+// RegionMap: {east=[Arnprior, Belleville, Brockville, Carleton Place, Cornwall, Embrun, Gananoque, Greater Napanee, Hawkesbury, Kingston, Mississippi Mills, Pembroke, Perth, Petawawa, Prince Edward County, Quinte West, Renfrew, Rockland, Russell, Smiths Falls],
+// south=[Toronto, Ottawa, Hamilton, Kitchener, Cambridge, London, St.Catherines, Niagara, Oshawa, Windsor, Barrie, Kingston, Guelph, Brantford, Peterborough],
+// north=[Dryden, Elliot Lake, Greater Subury, Kenora, North Bay, Sault Ste.Marie, Thunder Bay, Temiskaming Shores, Timmmins],
+// northwest=[Dryden, Thunder Bay, Kenora, Fort Frances, Sioux Lookout, Greenstone, Red Lake, Maraton, Atikokan]}
 
     @Override
     public Map<String, Double> updateBB() {
@@ -207,11 +209,16 @@ public class LocationExpert implements Expert {
                 String[] tokens = line.split(",");
 
                 // Read the data and store it in the WellData POJO.
+                if(tokens.length == 13){
+                    continue;
+                }
+
+
                 //tokens[0].toString(),tokens[1].toString(),tokens[2].toString(),tokens[3].toString(),tokens[4].toString(),tokens[5].toString(),tokens[6].toString(),tokens[7].toString(
-                LocationDetails locationTreeData = new LocationDetails(tokens[0],tokens[11] );
+                LocationDetails locationTreeData = new LocationDetails(tokens[0],tokens[13] );
                 listOfTrees.add(locationTreeData);
 
-                Log.d("LocationExpert" ,"Just Created " + locationTreeData);
+                //Log.d("LocationExpert" ,"Just Created " + locationTreeData);
             }
         } catch (IOException e1) {
             Log.e("LocationExpert", "Error" + line, e1);

@@ -163,7 +163,7 @@ public class LeafExpert implements Expert {
                 LeafDetails leafTreeData = new LeafDetails(tokens[0],tokens[1],tokens[2],tokens[3],tokens[4],tokens[5],tokens[6],tokens[7],tokens[8],tokens[9],tokens[10]);
                 listOfTrees.add(leafTreeData);
 
-                Log.d("MainActivity" ,"Just Created " + leafTreeData);
+                //Log.d("MainActivity" ,"Just Created " + leafTreeData);
             }
         } catch (IOException e1) {
             Log.e("MainActivity", "Error" + line, e1);
