@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.mcmaster.blackBoard.identreefier.Experts.Expert;
 import com.mcmaster.blackBoard.identreefier.Experts.LeafExpert;
@@ -25,6 +26,7 @@ public class BlackBoard extends AppCompatActivity {
 
     private List<Expert> experts;
     private UserInput userInput ;
+    public TextView inputVal;
 
 
     public Map<String,HashMap<String,String>> list;
@@ -41,11 +43,15 @@ public class BlackBoard extends AppCompatActivity {
 
         Intent intent = getIntent();
         this.userInput = (UserInput) intent.getSerializableExtra("userInput");
+        TextView textView = findViewById(R.id.textView5);
+
 
         //update(userInput);
         //this.list = new HashMap<>();
         this.list = userInput.getDetails();
         Log.v("list values: ",list.toString() );
+        textView.setText(list.toString());
+
 
         Expert leaf = new LeafExpert(this);
         registerExpert(leaf);
@@ -95,7 +101,7 @@ public class BlackBoard extends AppCompatActivity {
     }
 
     private void readData() {
-        InputStream is = getResources().openRawResource(R.raw.treedatacsv);
+        InputStream is = getResources().openRawResource(R.raw.treedata);
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(is, Charset.forName("UTF-8")));
         String line = "";
