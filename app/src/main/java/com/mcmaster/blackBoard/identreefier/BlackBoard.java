@@ -52,7 +52,7 @@ public class BlackBoard extends AppCompatActivity {
         Intent intent = getIntent();
         this.userInput = (UserInput) intent.getSerializableExtra("userInput");
         TextView textView = findViewById(R.id.textView5);
-        
+
         this.list = userInput.getDetails();
         Log.v("list values: ",list.toString() );
         textView.setText(list.toString());

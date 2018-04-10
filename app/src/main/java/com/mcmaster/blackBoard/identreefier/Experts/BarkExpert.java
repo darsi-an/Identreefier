@@ -115,7 +115,7 @@ public class BarkExpert implements Expert {
                 BarkDetails barkDetails = new BarkDetails(tokens[0],tokens[11],tokens[12]);
                 listOfTrees.add(barkDetails);
 
-                Log.d("BarkExpert" ,"Just Created " + barkDetails);
+                //Log.d("BarkExpert" ,"Just Created " + barkDetails);
             }
         } catch (IOException e1) {
             Log.e("BarkExpert", "Error" + line, e1);

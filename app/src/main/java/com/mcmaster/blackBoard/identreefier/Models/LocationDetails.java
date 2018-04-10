@@ -17,4 +17,21 @@ public class LocationDetails {
         this.province = "Ontario";
         this.country = "Canada";
     }
+
+
+    public String getTreeName() {
+        return treeName;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public String getCountry() {
+        return country;
+    }
 }
