@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -19,14 +20,14 @@ public class LeafExpert implements Expert {
 
     private static final String TAG = "BlackBoard";
     private LeafDetails[] rules;
-    public List<LeafDetails> listOfTrees;
+    private List<LeafDetails> listOfTrees;
 
     public BlackBoard blackBoard;
-    private Context blkbrd;
+    //private Context blkbrd;
 
     public LeafExpert(BlackBoard blk){
         this.blackBoard = blk;
-        this.blkbrd = blk;
+        this.listOfTrees =  new ArrayList<>();
     }
 
     @Override
@@ -43,6 +44,10 @@ public class LeafExpert implements Expert {
     @Override
     public void handleEvent() {
 
+        loadRules();
+        for(int i = 1 ; i < 21 ; i++){
+            Log.v("leafListTrees: " , listOfTrees.get(i).getTreeName());
+        }
         Log.i(TAG,"Leaf expert not implemented yet");
     }
 
