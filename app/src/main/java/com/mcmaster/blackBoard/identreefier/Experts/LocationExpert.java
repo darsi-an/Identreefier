@@ -31,9 +31,7 @@ public class LocationExpert implements Expert {
     private LocationDetails[] rules;
 
     public List<LocationDetails> listOfTrees;
-
     private HashMap<String, Double> results;
-
     public BlackBoard blackBoard;
     //private Context blkbrd;
 
@@ -71,7 +69,6 @@ public class LocationExpert implements Expert {
 
         Log.v("Address from geocoder: ", addresses.toString());
         String city = addresses.get(0).getLocality();
-        String postalCode = addresses.get(0).getPostalCode();
         String region = findRegion(city);
 
         loadRules();
@@ -83,29 +80,29 @@ public class LocationExpert implements Expert {
             LocationDetails location = listOfTrees.get(i);
             //HashMap<String, String> ui = blackBoard.userInput.getDetails();
             //Log.i("ui: ", ""+ui);
-            Log.i("location: ", location.getCity());
+            //Log.i("location: ", location.getCity());
             String locationNotes = location.getCity();
             String[] tree_region = locationNotes.split("\\s+");
             for(String reg : tree_region){
                 if(reg.matches(region) || reg.matches("all")){
                     num += 1.0;
                     Log.i("region matched: ", "true");
+                    break;
                 }
-                denom += 1.0;
-
             }
-            Log.i("num: ", num+"");
-            Log.i("denom: ", denom+"");
+            denom += 1.0;
+            //Log.i("num: ", num+"");
+            //Log.i("denom: ", denom+"");
             retList.put(location.getTreeName(), num/denom);
 
         }
-        Log.v("tree resultsLocation: " , retList.toString());
-
         this.results = retList;
-
         Map<String, Double> dummy = updateBB();
+        Log.v("tree resultsLocation: " , retList.toString());
         
     }
+
+
 
     public String findRegion(String city){
         HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
@@ -180,7 +177,7 @@ public class LocationExpert implements Expert {
             for(String cityByRegion : entry.getValue()){
                 if(cityByRegion.matches(city)){
                     region = entry.getKey();
-                    Log.v("region: ", region);
+                    //Log.v("region: ", region);
                 }
             }
         }
