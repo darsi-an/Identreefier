@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +27,11 @@ public class BarkExpert implements Expert {
     public BlackBoard blackBoard;
     private Context blkbrd;
 
+    public BarkExpert(BlackBoard blk){
+        this.blackBoard = blk;
+        this.listOfTrees =  new ArrayList<>();
+    }
+
     @Override
     public String getName() {
         return "BarkExpert";
@@ -32,12 +39,57 @@ public class BarkExpert implements Expert {
 
     @Override
     public boolean checkEventCondition() {
-        return false;
+        return true;
     }
 
     @Override
     public void handleEvent() {
-        System.out.println("Bark expert not implemented yet");
+        Log.v("hey: ", "there");
+        loadRules();
+
+        int length = listOfTrees.size();
+        HashMap<String, Double> retList = new HashMap<>();
+
+        for (int i=1; i<2; i++) {
+            double num = 1.0;
+            double denom = 1.0;
+            BarkDetails bark = listOfTrees.get(i);
+            HashMap<String, String> ui = blackBoard.userInput.getDetails();
+//            Log.v("ui: ", ""+ui.get("barkColor"));
+//            Log.v("bark: ", bark.getColour());
+
+            if (ui.get("barkColor") != null && bark.getColour() != null && !ui.get("barkColor").equals("") && !bark.getColour().equals("")) {
+                String[] colours = bark.getColour().split(" ");
+//                Log.v("num of colours", colours.length+"");
+                for (String colour : colours) {
+//                    Log.v("colour", colour+ui.get("barkColor"));
+                    if (colour.equalsIgnoreCase(ui.get("barkColor"))) {
+                        num += 1;
+                    }
+                }
+                denom += 1;
+            }
+            if ((ui.get("barkColor2") != null) && (bark.getColour() != null) && !ui.get("barkColor2").equals("") && !bark.getColour().equals("") && !ui.get("barkColor2").equals(ui.get("barkColor"))) {
+                String[] colours = bark.getColour().split(" ");
+                for (String colour : colours) {
+//                    Log.v("colour", colour);
+                    if (colour.equalsIgnoreCase(ui.get("barkColor2"))) {
+                        num += 1;
+                    }
+                }
+                denom += 1;
+            }
+            if (ui.get("barkTexture") != null && bark.getTexture() != null && !ui.get("barkTexture").equals("") && !bark.getTexture().equals("")) {
+                if (bark.getTexture().equalsIgnoreCase(ui.get("barkTexture"))) {
+                    num += 1.0;
+//                    Log.v("arrangement ", "true");
+                }
+                denom += 1.0;
+            }
+//            Log.v("bark num ", num+"");
+//            Log.v("bark denom ", denom+"");
+            retList.put(bark.getTreeName(), num/denom);
+        }
     }
 
     @Override
@@ -59,7 +111,7 @@ public class BarkExpert implements Expert {
 
                 // Read the data and store it in the WellData POJO.
                 //tokens[0].toString(),tokens[1].toString(),tokens[2].toString(),tokens[3].toString(),tokens[4].toString(),tokens[5].toString(),tokens[6].toString(),tokens[7].toString(
-                BarkDetails barkDetails = new BarkDetails(tokens[0],tokens[9],tokens[10]);
+                BarkDetails barkDetails = new BarkDetails(tokens[0],tokens[11],tokens[12]);
                 listOfTrees.add(barkDetails);
 
                 Log.d("MainActivity" ,"Just Created " + barkDetails);

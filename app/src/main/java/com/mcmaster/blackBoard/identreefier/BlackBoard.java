@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.mcmaster.blackBoard.identreefier.Experts.BarkExpert;
 import com.mcmaster.blackBoard.identreefier.Experts.Expert;
 import com.mcmaster.blackBoard.identreefier.Experts.LeafExpert;
 
@@ -38,9 +39,9 @@ public class BlackBoard extends AppCompatActivity {
 
         this.tree_result = new ArrayList<>() ;
         readData();
-        for(int i = 1 ; i < 22; i++){
-            Log.v("tree_result: ", tree_result.get(i).getTreeName());
-        }
+//        for(int i = 1 ; i < 22; i++){
+//            Log.v("tree_result: ", tree_result.get(i).getTreeName());
+//        }
 
         this.experts = new ArrayList<>();
 
@@ -58,6 +59,8 @@ public class BlackBoard extends AppCompatActivity {
 
         Expert leaf = new LeafExpert(this);
         registerExpert(leaf);
+        Expert bark = new BarkExpert(this);
+        registerExpert(bark);
         expertEventTrigger();
 
 

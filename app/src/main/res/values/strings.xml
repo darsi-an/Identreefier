@@ -106,6 +106,7 @@
         <item></item>
         <item>Red</item>
         <item>Brown</item>
+        <item>Grey</item>
         <item>Black</item>
         <item>Green</item>
         <item>Silver</item>
@@ -117,8 +118,11 @@
     </string-array>
     <string-array name="bark_texture">
         <item></item>
-        <item>Pinnately Compound</item>
-        <item>Palmately Compound</item>
+        <item>Big Ridges</item>
+        <item>Small Ridges</item>
+        <item>Scales</item>
+        <item>Smooth</item>
+        <item>Papery</item>
     </string-array>
 
     <string name="sendBlackboardData">Identify Tree!</string>
