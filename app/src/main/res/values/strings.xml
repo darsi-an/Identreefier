@@ -131,4 +131,5 @@
     <string name="title_location_permission">Requesting Permissions</string>
     <string name="text_location_permission">accept to use location</string>
     <string name="ok">Okay</string>
+    <string name="results">Top 10 trees</string>
 </resources>
