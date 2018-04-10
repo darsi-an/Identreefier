@@ -10,9 +10,9 @@
     <string name="send_inpit_to_blackboard">Send values to blackboard</string>
 
     <!--User Input Questions-->
-    <string name="TreeType">What Type of tree is it?</string>
+    <string name="LeafType">What Type of tree is it?</string>
     <string name="LeafArrangement">How are the leaflets arranged?</string>
-    <string name="LeafType">How are the leaves grouped?</string>
+    <string name="LeafGrouping">How are the leaves grouped?</string>
     <string name="LeafEdges">What does the edge of the leaf look like?</string>
     <string name="leaf_bladeStructure">What is the leaf blade structure?</string>
     <string name="LobbedOrNo">Do the leaves have lobes?</string>
@@ -20,10 +20,12 @@
     <string name="leaf_bud_arrangement">How are the leaf buds arranged?</string>
     <string name="blade_structure">What is the blade structure?</string>
     <string name="leaf_shape">What shape are the leaves?</string>
+    <string name="needles_orScales">Does the tree have needles or scales?</string>
+    <string name="needles_bundled">How are the needles bundled?</string>
     <string name="barkColor">What is the color of the bark?</string>
+    <string name="barkColor2">If you cannot distinguish a color, please name another color of the bark?</string>
     <string name="barkTexture">What is the texture of the bark?</string>
-    <string name="fruit_size">What size is the fruit?</string>
-    <string name="fruit_color">What color is the fruit?</string>
+
 
 
     <string name="no_geocoder_available">No geocoder available</string>
@@ -44,38 +46,43 @@
     <string name="settings">Settings</string>
 
     <!--User Input Spinner Values-->
-    <string-array name="tree_type">
-        <item>What type of tree is it?</item>
+    <string-array name="leaf_type">
+        <item></item>
         <item>Deciduous</item>
         <item>Coniferous</item>
     </string-array>
     <string-array name="l_arrangement">
-        <item>How are the leaflets arranged?</item>
+        <item></item>
         <item>Pinnately Compound</item>
         <item>Palmately Compound</item>
     </string-array>
-    <string-array name="l_type">
-        <item>How are the leaves grouped?</item>
+    <string-array name="l_grouping">
+        <item></item>
         <item>Simple</item>
         <item>Compound</item>
     </string-array>
     <string-array name="l_edges">
+        <item></item>
         <item>Smooth</item>
         <item>Rough</item>
     </string-array>
     <string-array name="l_lobbed">
+        <item></item>
         <item>Lobbed</item>
         <item>No Lobes</item>
     </string-array>
     <string-array name="l_blade_struture">
+        <item></item>
         <item>Narrow</item>
         <item>Broad</item>
     </string-array>
     <string-array name="l_base">
+        <item></item>
         <item>Symetrical</item>
         <item>Asymetrical</item>
     </string-array>
     <string-array name="l_shape">
+        <item></item>
         <item>Oval</item>
         <item>Triangular</item>
         <item>Heart</item>
@@ -83,19 +90,23 @@
         <item>Palmate</item>
         <item>Sinuate</item>
     </string-array>
-    <string-array name="l_bud_arrangement">
+    <string-array name="l_needlesOrScales">
+        <item></item>
         <item>Opposite</item>
         <item>Alternate</item>
     </string-array>
-    <string-array name="twig_bud">
-        <item>Pinnately Compound</item>
-        <item>Palmately Compound</item>
+    <string-array name="l_needlesBundled">
+        <item></item>
+        <item>Opposite</item>
+        <item>Alternate</item>
     </string-array>
     <string-array name="bark_color">
+        <item></item>
         <item>Pinnately Compound</item>
         <item>Palmately Compound</item>
     </string-array>
     <string-array name="bark_texture">
+        <item></item>
         <item>Pinnately Compound</item>
         <item>Palmately Compound</item>
     </string-array>

@@ -14,8 +14,11 @@ public class UserInput implements Serializable{
     String leafBladeStructure;
     String leafBase;
     String leafShape;
-    String leafBudArrangement;
+    //String leafBudArrangement;
+    String needlesOrScales;
+    String needlesBundled;
     String barkColour;
+    String barkColor2;
     String barkTexture;
     Double lattitude;
     Double longitude;
@@ -32,14 +35,20 @@ public class UserInput implements Serializable{
         leafMap.put("leaflet_arrangement",leafletArrangement);
         leafMap.put("leaf_type",leafType);
         leafMap.put("leafEdge",leafEdge);
+        leafMap.put("isLobbed",lobesOrNot);
+        leafMap.put("leafBladeStructure",leafBladeStructure);
+        leafMap.put("leafBase",leafBase);
+        leafMap.put("leafShape",leafShape);
+        //leafMap.put("leafBudArrangement",leafBudArrangement);
+        leafMap.put("needlesOrScales",needlesOrScales);
+        leafMap.put("needlesBundled",needlesBundled);
         list.put("leaf",leafMap);
-
 
         HashMap barkMap = new HashMap();
         barkMap.put("barkColor",barkColour);
+        barkMap.put("barkColor2",barkColor2);
         barkMap.put("barkTexture", barkTexture);
         list.put("bark",barkMap);
-
 
 
         HashMap loc = new HashMap();

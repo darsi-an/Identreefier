@@ -31,10 +31,10 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/TreeType" />
+                android:text="@string/LeafType" />
 
             <Spinner
-                android:id="@+id/tree_type_spinner"
+                android:id="@+id/leaf_type_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -53,10 +53,10 @@
                 android:id="@+id/textView17"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/LeafType" />
+                android:text="@string/LeafGrouping" />
 
             <Spinner
-                android:id="@+id/leaf_type_spinner"
+                android:id="@+id/leaf_grouping_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -79,7 +79,7 @@
                 android:text="@string/LobbedOrNo" />
 
             <Spinner
-                android:id="@+id/leaf_edge_spinner"
+                android:id="@+id/leaf_isLobbed_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -121,21 +121,43 @@
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/leaf_bud_arrangement" />
+                android:text="@string/needles_orScales" />
 
             <Spinner
-                android:id="@+id/leaf_bud_arrangement"
+                android:id="@+id/leaf_needlesOrScales_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/needles_bundled" />
+
+            <Spinner
+                android:id="@+id/leaf_needlesBundled"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="25dp"
                 android:text="@string/barkColor" />
 
             <Spinner
                 android:id="@+id/bark_color_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:text="@string/barkColor2" />
+
+            <Spinner
+                android:id="@+id/bark_color2_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

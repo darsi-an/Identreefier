@@ -65,7 +65,7 @@ public class LeafExpert implements Expert {
 
                 // Read the data and store it in the WellData POJO.
                 //tokens[0].toString(),tokens[1].toString(),tokens[2].toString(),tokens[3].toString(),tokens[4].toString(),tokens[5].toString(),tokens[6].toString(),tokens[7].toString(
-                LeafDetails leafTreeData = new LeafDetails(tokens[0],tokens[1],tokens[2],tokens[3],tokens[4],tokens[5],tokens[6],tokens[7]);
+                LeafDetails leafTreeData = new LeafDetails(tokens[0],tokens[1],tokens[2],tokens[3],tokens[4],tokens[5],tokens[6],tokens[7],tokens[8],tokens[9],tokens[10]);
                 listOfTrees.add(leafTreeData);
 
                 Log.d("MainActivity" ,"Just Created " + leafTreeData);
